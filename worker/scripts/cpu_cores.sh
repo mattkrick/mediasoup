@@ -10,5 +10,7 @@ case "${OS}" in
 	Darwin*)  NUM_CORES=$(sysctl -n hw.ncpu);;
 	*)        NUM_CORES=1;;
 esac
-
+if [ -n "${MAX_CORES}" ]; then
+	NUM_CORES=${MAX_CORES}
+fi
 echo ${NUM_CORES}
